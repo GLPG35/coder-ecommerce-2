@@ -1,0 +1,15 @@
+{
+  "name": "ecommerce-3",
+  "version": "1.0.0",
+  "description": "This is an e-commerce built for CoderHouse",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "e-commerce",
+    "backend"
+  ],
+  "author": "Gian Luca Porto",
+  "license": "MIT"
+}
