@@ -1,8 +1,9 @@
 {
   "name": "ecommerce-3",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "This is an e-commerce built for CoderHouse",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "tsc": "tsc"
   },

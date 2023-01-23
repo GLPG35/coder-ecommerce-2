@@ -7,3 +7,10 @@ export interface Product {
 	description: string,
 	stock: number
 }
+
+export interface Users {
+	nombre: string,
+	apellido: string,
+	edad: number,
+	curso: string
+}
