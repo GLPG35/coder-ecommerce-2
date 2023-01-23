@@ -1,9 +1,13 @@
+import { Product } from './types'
+
 class ProductManager {
-	constructor(products) {
+	products: Product[]
+
+	constructor(products: Product[]) {
 		this.products = products
 	}
 
-	addProduct = (code, title, price, thumbnail, description, stock) => {
+	addProduct = (code: string, title: string, price: number, thumbnail: string, description: string, stock: number) => {
 		const exists = this.products.find(x => x.code == code)
 
 		if (!exists) {
@@ -15,7 +19,7 @@ class ProductManager {
 
 	getProducts = () => this.products
 
-	getProductById = (id) => {
+	getProductById = (id: number): Product | string => {
 		const findProduct = this.products.find(x => x.id == id)
 
 		return findProduct || 'Not Found'
