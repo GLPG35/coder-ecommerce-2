@@ -9,7 +9,7 @@ class ProductManager {
 	}
 
 	addProduct = async (code: string, title: string, price: number, thumbnail: string, description: string, stock: number) => {
-		const products = await fs.readFile(this.path, { encoding: 'utf-8' })
+		const products = await fs.readFile(this.path, 'utf-8')
 		.then(data => JSON.parse(data))
 		.catch(() => [])
 
@@ -28,14 +28,14 @@ class ProductManager {
 
 			products.push(newProduct)
 
-			await fs.writeFile(this.path, JSON.stringify(products), { encoding: 'utf-8' })
+			await fs.writeFile(this.path, JSON.stringify(products), 'utf-8')
 		} else {
 			console.error('This product already exists!')
 		}
 	}
 
 	getProducts = async () => {
-		const products = await fs.readFile(this.path, { encoding: 'utf-8' })
+		const products = await fs.readFile(this.path, 'utf-8')
 		.then(data => JSON.parse(data))
 		.catch(() => [])
 
@@ -43,7 +43,7 @@ class ProductManager {
 	}
 
 	getProductById = async (id: number)=> {
-		const products = await fs.readFile(this.path, { encoding: 'utf-8' })
+		const products = await fs.readFile(this.path, 'utf-8')
 		.then(data => JSON.parse(data))
 		.catch(() => [])
 
@@ -54,7 +54,7 @@ class ProductManager {
 
 	updateProduct = async (id: number, code: string | undefined, title: string | undefined, price: number | undefined,
 	thumbnail: string | undefined, description: string | undefined, stock: number | undefined): Promise<void | undefined> => {
-		const products: Product[] | [] = await fs.readFile(this.path, { encoding: 'utf-8' })
+		const products: Product[] | [] = await fs.readFile(this.path, 'utf-8')
 		.then(data => JSON.parse(data))
 		.catch(() => [])
 
@@ -78,13 +78,13 @@ class ProductManager {
 		const productIndex = products.findIndex((x: Product) => x.id == id)
 		products.splice(productIndex, 1, updatedProduct)
 
-		await fs.writeFile(this.path, JSON.stringify(products), { encoding: 'utf-8' })
+		await fs.writeFile(this.path, JSON.stringify(products), 'utf-8')
 
 		console.log('Product updated successfully')
 	}
 
 	deleteProduct = async (id: number): Promise<void | undefined> => {
-		const products: Product[] | [] = await fs.readFile(this.path, { encoding: 'utf-8' })
+		const products: Product[] | [] = await fs.readFile(this.path, 'utf-8')
 		.then(data => JSON.parse(data))
 		.catch(() => [])
 
@@ -95,10 +95,9 @@ class ProductManager {
 			return undefined
 		}
 
-		const productIndex = products.findIndex((x: Product) => x.id == id)
-		products.splice(productIndex, 1)
+		const filteredProducts = products.filter((x: Product) => x.id != id)
 
-		await fs.writeFile(this.path, JSON.stringify(products), { encoding: 'utf-8' })
+		await fs.writeFile(this.path, JSON.stringify(filteredProducts), 'utf-8')
 
 		console.log('Product deleted successfully')
 	}
