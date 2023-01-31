@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
 	.then(product => {
 		res.send(product)
 	}).catch(err => {
-		res.status(400).send(err.message)
+		res.status(400).send({ error: err.message })
 	})
 
 })
@@ -24,7 +24,7 @@ router.get('/:pid', (req, res) => {
 	.then(product => {
 		res.send(product)
 	}).catch(err => {
-		res.status(404).send(err.message)
+		res.status(404).send({ error: err.message })
 	})
 })
 
