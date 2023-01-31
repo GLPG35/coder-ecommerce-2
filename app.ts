@@ -5,9 +5,9 @@ const app = express()
 app.use(express.json())
 
 const PORT = 3000
-
+express
 app.use('/products', products)
 
 app.listen(PORT, () => {
-	console.log(`Listening on: http://localhost:${PORT}`)
+	console.log(`Listening on: http://localhost:${PORT}/products`)
 })

@@ -1,7 +1,7 @@
-import express from 'express'
+import { Router } from 'express'
 import ProductManager from '../productManager'
 
-const router = express.Router()
+const router = Router()
 
 const products = new ProductManager('./assets/products.json')
 
