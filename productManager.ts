@@ -64,7 +64,7 @@ class ProductManager {
 			return findProduct
 		}
 
-		throw new Error('Not Found')
+		throw new Error('Product Not Found')
 	}
 
 	updateProduct = async (id: number, code: string | undefined, title: string | undefined, price: number | undefined,
@@ -76,7 +76,7 @@ class ProductManager {
 		const findProduct: Product | undefined = products.find((x: Product) => x.id == id)
 
 		if (!findProduct) {
-			throw new Error('Not Found')
+			throw new Error('Product Not Found')
 		}
 
 		const updatedProduct = {
@@ -105,7 +105,7 @@ class ProductManager {
 		const findProduct = products.find((x: Product) => x.id == id)
 
 		if (!findProduct) {
-			throw new Error('Not Found')
+			throw new Error('Product Not Found')
 		}
 
 		const filteredProducts = products.filter((x: Product) => x.id != id)
