@@ -11,7 +11,7 @@ class ProductManager {
 	addProduct = async (code: string, title: string, price: number,
 	thumbnail: string, description: string, stock: number): Promise<boolean> => {
 		const products = await fs.readFile(this.path, 'utf-8')
-		.then(data => JSON.parse(data))
+		.then((data: any) => JSON.parse(data))
 		.catch(() => [])
 
 		const exists = products.find((x: Product) => x.code == code)
@@ -39,7 +39,7 @@ class ProductManager {
 
 	getProducts = async (limit?: number): Promise<Product[]> => {
 		const products: Product[] | [] = await fs.readFile(this.path, 'utf-8')
-		.then(data => JSON.parse(data))
+		.then((data: any) => JSON.parse(data))
 		.catch(() => [])
 
 		if (!limit) {
@@ -55,7 +55,7 @@ class ProductManager {
 
 	getProductById = async (id: number): Promise<Product> => {
 		const products = await fs.readFile(this.path, 'utf-8')
-		.then(data => JSON.parse(data))
+		.then((data: any) => JSON.parse(data))
 		.catch(() => [])
 
 		const findProduct = products.find((x: Product) => x.id == id)
@@ -70,7 +70,7 @@ class ProductManager {
 	updateProduct = async (id: number, code: string | undefined, title: string | undefined, price: number | undefined,
 	thumbnail: string | undefined, description: string | undefined, stock: number | undefined): Promise<boolean> => {
 		const products: Product[] | [] = await fs.readFile(this.path, 'utf-8')
-		.then(data => JSON.parse(data))
+		.then((data: any) => JSON.parse(data))
 		.catch(() => [])
 
 		const findProduct: Product | undefined = products.find((x: Product) => x.id == id)
@@ -99,7 +99,7 @@ class ProductManager {
 
 	deleteProduct = async (id: number): Promise<boolean> => {
 		const products: Product[] | [] = await fs.readFile(this.path, 'utf-8')
-		.then(data => JSON.parse(data))
+		.then((data: any) => JSON.parse(data))
 		.catch(() => [])
 
 		const findProduct = products.find((x: Product) => x.id == id)

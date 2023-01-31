@@ -1,6 +1,6 @@
 {
   "name": "ecommerce-3",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "This is an e-commerce built for CoderHouse",
   "main": "index.js",
   "scripts": {
